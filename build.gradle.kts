@@ -16,8 +16,11 @@ repositories {
 	mavenCentral()
 }
 
+extra["springCloudVersion"] = "2021.0.3"
+
 dependencies {
 	api(fileTree("libs") { include("*.jar") })
+	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -28,6 +31,13 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
 }
+
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+	}
+}
+
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {

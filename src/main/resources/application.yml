@@ -14,6 +14,9 @@ spring:
         show_sql: true
         format_sql: true
 
+  application:
+    name: message-platform
+
 
 kafka:
   bootstrapAddress: localhost:9092
@@ -26,3 +29,13 @@ logging:
 
 server:
   port: 8081
+
+eureka:
+  instance:
+    instance-id: message-platform-instance
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
