@@ -1,6 +1,6 @@
 package com.yolo.msg.api
 
-import com.yolo.msg.BoardDto
+import com.yolo.msg.Person
 import com.yolo.msg.kafka.KafkaProducer
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping(value = ["/v1/kafka"])
 @RestController
 class MessageApi(
-    private val kafkaProducer: KafkaProducer,
+    private val kafkaProducer: KafkaProducer
 ) {
 
     @PostMapping("/message")
-    fun sendMessage(@RequestBody boardDto: BoardDto) {
-        println("boardDto: $boardDto")
-        kafkaProducer.sendMessage(boardDto)
+    fun sendMessage(@RequestBody person: Person) {
+        println("person: $person")
+        kafkaProducer.sendMessage(person)
     }
 
     @GetMapping("/default-message")

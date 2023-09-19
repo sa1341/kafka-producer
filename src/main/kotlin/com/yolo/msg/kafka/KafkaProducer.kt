@@ -1,7 +1,7 @@
 package com.yolo.msg.kafka
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.yolo.msg.BoardDto
+import com.yolo.msg.Person
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service
 class KafkaProducer(
     private val kafkaTemplate: KafkaTemplate<String, Any>,
     private val mapper: ObjectMapper
-){
+) {
 
-    fun sendMessage(boardDto: BoardDto) {
-        val event = mapper.writeValueAsString(boardDto)
-        kafkaTemplate.send("sample-topic", event)
+    fun sendMessage(person: Person) {
+        val event = mapper.writeValueAsString(person)
+        kafkaTemplate.send("stream-topic", person)
     }
 }

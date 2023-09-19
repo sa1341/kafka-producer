@@ -1,0 +1,8 @@
+### 카프카 프로듀싱 API 테스트
+POST localhost:8081/v1/kafka/message
+Content-Type: application/json
+
+{
+  "name": "진칾",
+  "age": 32
+}
