@@ -3,6 +3,25 @@ POST localhost:8081/v1/kafka/message
 Content-Type: application/json
 
 {
-  "name": "진칾",
+  "name": "임준영",
   "age": 32
+}
+
+### 카프카 구매정보 프로듀싱 API 테스트
+POST localhost:8081/v1/kafka/purchase
+Content-Type: application/json
+
+{
+  "first_name": "준영",
+  "last_name": "임",
+  "customer_id": "sa1341",
+  "credit_card_number": "0200-1243-4321-7777",
+  "item_purchased": "iphone15",
+  "department": "현대백화점",
+  "employee_id": "paysec",
+  "quantity": 1,
+  "price": 1000000,
+  "purchase_date": "20231001",
+  "zip_code": "정자동 7508",
+  "store_id": "paysec-1"
 }
