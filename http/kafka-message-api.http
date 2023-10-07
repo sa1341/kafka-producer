@@ -12,16 +12,16 @@ POST localhost:8081/v1/kafka/purchase
 Content-Type: application/json
 
 {
-  "first_name": "준영",
-  "last_name": "임",
+  "first_name": "jean",
+  "last_name": "calm",
   "customer_id": "sa1341",
   "credit_card_number": "0200-1243-4321-7777",
   "item_purchased": "iphone15",
-  "department": "현대백화점",
+  "department": "coffee",
   "employee_id": "paysec",
   "quantity": 1,
-  "price": 1000000,
+  "price": 3900,
   "purchase_date": "20231001",
-  "zip_code": "정자동 7508",
-  "store_id": "paysec-1"
+  "zip_code": "정자동 75-8",
+  "store_id": "paysec-2"
 }

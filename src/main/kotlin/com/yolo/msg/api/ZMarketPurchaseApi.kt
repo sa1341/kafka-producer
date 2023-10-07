@@ -1,6 +1,5 @@
 package com.yolo.msg.api
 
-import com.yolo.msg.Person
 import com.yolo.msg.kafka.KafkaProducer
 import com.yolo.msg.market.model.Purchase
 import org.springframework.web.bind.annotation.PostMapping
