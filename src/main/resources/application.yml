@@ -1,9 +1,10 @@
 spring:
+  application:
+    name: message-platform
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/dokotlin?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul
     username: root
     password:
-
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: true
@@ -13,13 +14,31 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-
-  application:
-    name: message-platform
-
-
-kafka:
-  bootstrapAddress: localhost:9092
+  kafka:
+    bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092,localhost:9093,localhost:9094
+          producer-properties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+          consumer-properties:
+            auto.offset.reset: latest
+        bindings:
+          topicConsumer-in-0:
+            consumer:
+              start-offset: earliest
+              dlq-name: topicConsumerFail
+              enable-dlq: true
+      bindings:
+        topicConsumer-in-0:
+          destination: stream-topic
+          consumer:
+            batch-mode: false
+          group: KafkaPubSubGroup
+    function:
+      definition: topicConsumer
 
 logging:
   level:

@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RequestMapping(value = ["/v1/kafka"])
-@RestController class StockApi(
-    private val kafkaProducer: KafkaProducer
+@RestController
+class StockApi(
+    private val kafkaProducer: KafkaProducer,
 ) {
     @PostMapping("/stock")
     fun sendMessage(@RequestBody stockTickerData: StockTickerData) {

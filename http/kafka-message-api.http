@@ -3,7 +3,7 @@ POST localhost:8081/v1/kafka/message
 Content-Type: application/json
 
 {
-  "name": "임준영",
+  "name": "진카미",
   "age": 32
 }
 
@@ -51,6 +51,10 @@ POST localhost:8081/v1/kafka/stock
 Content-Type: application/json
 
 {
-  "price": 3400,
-  "symbol": "apple"
+  "price": 110000,
+  "symbol": "kakaopay"
 }
+
+### websocket
+WEBSOCKET ws://localhost:8081/chat
+X-I-AM: a
